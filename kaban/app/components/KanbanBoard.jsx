@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import List from './List';
 
 export default class KanbanBoard extends Component {
   render(){
     return (
       <div className="app">
-       
+
         <List id='todo' title="To Do" cards={
         this.props.cards.filter((card) => card.status === "todo")
         } />
@@ -22,3 +22,7 @@ export default class KanbanBoard extends Component {
     );
   }
 }
+
+KanbanBoard.propTypes = {
+  cards: PropTypes.arrayOf(PropTypes.object),
+};
